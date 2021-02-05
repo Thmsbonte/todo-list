@@ -15,7 +15,16 @@ const App = () => {
       <Header />
       {tasks.map((elem, index) => {
         return (
-          <Task task={elem} index={index} tasks={tasks} setTasks={setTasks} />
+          elem[1] === false && (
+            <Task task={elem} index={index} tasks={tasks} setTasks={setTasks} />
+          )
+        );
+      })}
+      {tasks.map((elem, index) => {
+        return (
+          elem[1] === true && (
+            <Task task={elem} index={index} tasks={tasks} setTasks={setTasks} />
+          )
         );
       })}
       <NewTask tasks={tasks} setTasks={setTasks} />
