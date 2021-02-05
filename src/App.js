@@ -10,29 +10,15 @@ library.add(faTrash, faTrashAlt);
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
-  const [checkboxs, setCheckboxs] = useState([]);
-
   return (
     <div className="App">
       <Header />
       {tasks.map((elem, index) => {
         return (
-          <Task
-            task={elem}
-            index={index}
-            tasks={tasks}
-            setTasks={setTasks}
-            checkboxs={checkboxs}
-            setCheckboxs={setCheckboxs}
-          />
+          <Task task={elem} index={index} tasks={tasks} setTasks={setTasks} />
         );
       })}
-      <NewTask
-        tasks={tasks}
-        setTasks={setTasks}
-        checkboxs={checkboxs}
-        setCheckboxs={setCheckboxs}
-      />
+      <NewTask tasks={tasks} setTasks={setTasks} />
       <Footer />
     </div>
   );

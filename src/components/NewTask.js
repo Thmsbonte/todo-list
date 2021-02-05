@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const NewTask = ({ tasks, setTasks, checkboxs, setCheckboxs }) => {
+const NewTask = ({ tasks, setTasks }) => {
   const [newTask, setNewTask] = useState("");
 
   const handleOnClick = (event) => {
@@ -8,11 +8,7 @@ const NewTask = ({ tasks, setTasks, checkboxs, setCheckboxs }) => {
     const newTasks = [...tasks];
     newTasks.push(newTask);
     setTasks(newTasks);
-    setNewTask("");
-
-    const newCheckboxs = [...checkboxs];
-    newCheckboxs.push(false);
-    setCheckboxs(newCheckboxs);
+    setNewTask(["", false]);
   };
 
   return (
@@ -22,9 +18,9 @@ const NewTask = ({ tasks, setTasks, checkboxs, setCheckboxs }) => {
           type="text"
           name="new-task"
           placeholder="new task"
-          value={newTask}
+          value={newTask[0]}
           onChange={(event) => {
-            setNewTask(event.target.value);
+            setNewTask([event.target.value, false]);
           }}
         />
         <button onClick={handleOnClick}>Add task</button>

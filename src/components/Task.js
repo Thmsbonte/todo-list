@@ -1,30 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Task = ({ task, index, tasks, setTasks, checkboxs, setCheckboxs }) => {
+const Task = ({ task, index, tasks, setTasks }) => {
   const handleOnClick = () => {
     const newTasks = [...tasks];
     newTasks.splice(index, 1);
     setTasks(newTasks);
-
-    const newCheckboxs = [...checkboxs];
-    newCheckboxs.splice(index, 1);
-    setCheckboxs(newCheckboxs);
   };
 
   return (
     <div className="Task">
       <input
         type="checkbox"
-        checked={checkboxs[index]}
+        checked={tasks[index][1]}
         onClick={() => {
-          const newCheckboxs = [...checkboxs];
-          newCheckboxs[index] = !checkboxs[index];
-          setCheckboxs(newCheckboxs);
+          const newTasks = [...tasks];
+          newTasks[index][1] = !tasks[index][1];
+          setTasks(newTasks);
         }}
       />
       <p
         style={
-          checkboxs[index]
+          tasks[index][1]
             ? { textDecoration: "line-through" }
             : { textDecoration: "none" }
         }
