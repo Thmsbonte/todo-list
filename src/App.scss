@@ -1,0 +1,20 @@
+.New-task {
+  display: flex;
+}
+
+.Task {
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0 5px;
+  }
+}
+
+.Task-done {
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0 5px;
+    text-decoration: line-through;
+  }
+}
