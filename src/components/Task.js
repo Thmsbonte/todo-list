@@ -28,7 +28,11 @@ const Task = ({ task, index, tasks, setTasks }) => {
         {task}
       </p>
       <span>
-        <FontAwesomeIcon icon="trash-alt" onClick={handleOnClick} />
+        <FontAwesomeIcon
+          icon="trash-alt"
+          className="trash-alt"
+          onClick={handleOnClick}
+        />
       </span>
     </div>
   );

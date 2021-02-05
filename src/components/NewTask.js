@@ -17,7 +17,7 @@ const NewTask = ({ tasks, setTasks }) => {
         <input
           type="text"
           name="new-task"
-          placeholder="new task"
+          placeholder="New task"
           value={newTask[0]}
           onChange={(event) => {
             setNewTask([event.target.value, false]);

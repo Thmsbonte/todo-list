@@ -5,24 +5,33 @@ import Header from "./components/Header";
 import NewTask from "./components/NewTask";
 import Task from "./components/Task";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrash, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-library.add(faTrash, faTrashAlt);
+import {
+  faTrash,
+  faTrashAlt,
+  faListUl,
+} from "@fortawesome/free-solid-svg-icons";
+import SearchBar from "./components/SearchBar";
+library.add(faTrash, faTrashAlt, faListUl);
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+  const [search, setSearch] = useState("");
   return (
-    <div className="App">
+    <div className="App container">
       <Header />
+      <SearchBar search={search} setSearch={setSearch} />
       {tasks.map((elem, index) => {
         return (
-          elem[1] === false && (
+          elem[1] === false &&
+          elem[0].includes(search) && (
             <Task task={elem} index={index} tasks={tasks} setTasks={setTasks} />
           )
         );
       })}
       {tasks.map((elem, index) => {
         return (
-          elem[1] === true && (
+          elem[1] === true &&
+          elem[0].includes(search) && (
             <Task task={elem} index={index} tasks={tasks} setTasks={setTasks} />
           )
         );
